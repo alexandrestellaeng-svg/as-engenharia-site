@@ -1,0 +1,95 @@
+<svg width="600" height="500" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkGrad" x1="40" y1="40" x2="520" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A0B0F"/>
+      <stop offset="0.35" stop-color="#2E3138"/>
+      <stop offset="0.7" stop-color="#111318"/>
+      <stop offset="1" stop-color="#050608"/>
+    </linearGradient>
+    <radialGradient id="blueGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(455 92) rotate(90) scale(80 100)">
+      <stop offset="0" stop-color="#14B8FF"/>
+      <stop offset="1" stop-color="#005EA8"/>
+    </radialGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="0.45" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="0.52" stop-color="rgba(255,255,255,0.22)"/>
+      <stop offset="0.58" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="logoClip">
+      <path d="M126 49L185 49L437 472L327 472L126 49Z"/>
+      <path d="M35 363H150L188 426H0L35 363Z"/>
+      <path d="M356 48C337 67 325 98 336 142C351 200 410 201 470 226C532 251 558 285 559 343C560 391 539 428 514 448C523 419 521 386 499 359C474 328 435 316 393 303C339 287 286 257 274 194C264 141 282 83 315 48H356Z"/>
+    </clipPath>
+    <style>
+      .piece-a {
+        transform-origin: 280px 260px;
+        animation: barIn 1s cubic-bezier(.2,.9,.2,1) forwards;
+      }
+      .piece-base {
+        transform-origin: 95px 395px;
+        animation: baseIn .8s cubic-bezier(.22,1,.36,1) .15s forwards;
+        opacity: 0;
+      }
+      .piece-s {
+        stroke-dasharray: 1200;
+        stroke-dashoffset: 1200;
+        animation: sDraw 1.4s cubic-bezier(.65,0,.35,1) .3s forwards;
+      }
+      .piece-tri {
+        transform-origin: 455px 92px;
+        animation: triDrop .8s cubic-bezier(.22,1,.36,1) .9s forwards, triFloat 4s ease-in-out 1.8s infinite;
+        opacity: 0;
+      }
+      .shimmer {
+        clip-path: url(#logoClip);
+        animation: sheen 4.5s linear 1.3s infinite;
+      }
+      @keyframes barIn {
+        0% { opacity: 0; transform: translate(-32px,-36px) scale(.92); filter: blur(8px); }
+        65% { opacity: 1; transform: translate(0,0) scale(1.02); filter: blur(0px); }
+        100% { opacity: 1; transform: translate(0,0) scale(1); filter: blur(0px); }
+      }
+      @keyframes baseIn {
+        0% { opacity: 0; transform: translateY(22px) scaleX(.85); }
+        70% { opacity: 1; transform: translateY(-2px) scaleX(1.03); }
+        100% { opacity: 1; transform: translateY(0) scaleX(1); }
+      }
+      @keyframes sDraw {
+        0% { opacity: 0; stroke-dashoffset: 1200; transform: translate(14px,-10px); }
+        15% { opacity: 1; }
+        100% { opacity: 1; stroke-dashoffset: 0; transform: translate(0,0); }
+      }
+      @keyframes triDrop {
+        0% { opacity: 0; transform: translateY(-28px) scale(.82); }
+        70% { opacity: 1; transform: translateY(4px) scale(1.05); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes triFloat {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      @keyframes sheen {
+        0% { transform: translateX(-720px); opacity: 0; }
+        10% { opacity: .9; }
+        24% { opacity: 0; }
+        100% { transform: translateX(720px); opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <path class="piece-base" d="M35 363H150L188 426H0L35 363Z" fill="url(#darkGrad)"/>
+  <path class="piece-a" d="M126 49L185 49L437 472L327 472L126 49Z" fill="url(#darkGrad)"/>
+  <path class="piece-s" d="M336 48C317 68 305 98 316 141C330 199 390 202 451 225C518 251 542 287 541 343C540 390 522 424 495 446" stroke="url(#darkGrad)" stroke-width="62" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="piece-tri" d="M390 50H520L455 147L390 50Z" fill="url(#blueGrad)" filter="url(#glow)"/>
+
+  <rect class="shimmer" x="-250" y="0" width="180" height="500" fill="url(#shimmer)" opacity="0" transform="skewX(-25)"/>
+</svg>
