@@ -1341,8 +1341,8 @@ body.logo-first-visit .logo-animada-premium::after{
 
 /* v13 - animação usando a logo original enviada */
 .logo-badge-real{
-  width:112px;
-  height:112px;
+  width:140px;
+  height:140px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1352,8 +1352,8 @@ body.logo-first-visit .logo-animada-premium::after{
 
 .logo-real-wrap{
   position:relative;
-  width:78px;
-  height:78px;
+  width:120px;
+  height:120px;
   display:flex;
   align-items:center;
   justify-content:center;
